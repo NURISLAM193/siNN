@@ -1,45 +1,40 @@
 function runTask() {
+    let a = document.getElementById("arrayInput").value;
 
-    let input = document.getElementById("arrayInput").value;
-
-
-    if (input === "") {
+    if (a === "") {
         document.getElementById("result").innerText = "Пожалуйста, введите числа.";
         return;
     }
 
-    
-    let numbers = [];
-    let das = 0;
-    for (let i = 0; i < input.length; i++) {
-        if (input[i] === ',') {
-            let part = input.substring(das, i);
-            numbers.push(parseInt(part));
-            das = i + 1;
+    let b = [];
+    let c = 0;
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] === ',') {
+            let d = a.substring(c, i);
+            b.push(parseInt(d));
+            c = i + 1;
+        }
+    }
+    let e = a.substring(c);
+    b.push(parseInt(e));
+
+    let f = [];
+    for (let i = 0; i < b.length; i++) {
+        if (b[i] >= 0) {
+            f.push(b[i]);
         }
     }
 
-    let las = input.substring(dsa);
-    numbers.push(parseInt(las));
-
-    let nonNegative = [];
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] >= 0) {
-            nonNegative.push(numbers[i]);
-        }
-    }
-
-    
-    if (nonNegative.length === 0) {
+    if (f.length === 0) {
         document.getElementById("result").innerText = "Нет неотрицательных элементов.";
     } else {
-        let resultText = "Неотрицательные элементы: ";
-        for (let i = 0; i < nonNegative.length; i++) {
-            resultText += nonNegative[i];
-            if (i < nonNegative.length - 1) {
-                resultText += ", ";
+        let g = "Неотрицательные элементы: ";
+        for (let i = 0; i < f.length; i++) {
+            g += f[i];
+            if (i < f.length - 1) {
+                g += ", ";
             }
         }
-        document.getElementById("result").innerText = resultText;
+        document.getElementById("result").innerText = g;
     }
 }
