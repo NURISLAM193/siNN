@@ -1,78 +1,83 @@
 
     
-function runTask() {
-    let jj = document.getElementById("arrayInput").value;
 
-    if (jj === "") {
+    
+// Задача 1: Неотрицательные элементы
+function runTask() {
+    let a = document.getElementById("arrayInput").value;
+
+    if (a === "") {
         document.getElementById("result").innerText = "Пожалуйста, введите числа.";
         return;
     }
 
-    let qq = [];
-    let aa = 0;
-    for (let i = 0; i < jj.length; i++) {
-        if (jj[i] === ',') {
-            let bb = jj.substring(aa, i);
-            qq.push(parseInt(bb));
-            aa = i + 1;
+    let b = [];
+    let c = 0;
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] === ',') {
+            let d = a.substring(c, i);
+            b.push(parseInt(d));
+            c = i + 1;
         }
     }
-    let cc = jj.substring(aa);
-    qq.push(parseInt(cc));
+    let e = a.substring(c);
+    b.push(parseInt(e));
 
-    let dd = [];
-    for (let i = 0; i < qq.length; i++) {
-        if (qq[i] >= 0) {
-            dd.push(qq[i]);
+    let f = [];
+    for (let i = 0; i < b.length; i++) {
+        if (b[i] >= 0) {
+            f.push(b[i]);
         }
     }
 
-    if (dd.length === 0) {
+    if (f.length === 0) {
         document.getElementById("result").innerText = "Нет неотрицательных элементов.";
     } else {
-        let ee = "Неотрицательные элементы: ";
-        for (let i = 0; i < dd.length; i++) {
-            ee += dd[i];
-            if (i < dd.length - 1) {
-                ee += ", ";
+        let g = "Неотрицательные элементы: ";
+        for (let i = 0; i < f.length; i++) {
+            g += f[i];
+            if (i < f.length - 1) {
+                g += ", ";
             }
         }
-        document.getElementById("result").innerText = ee;
+        document.getElementById("result").innerText = g;
     }
 }
 
+// Задача 2: Увеличить на 10%
 function increaseNumbers() {
-    let ff = document.getElementById("arrayInput2").value;
+    let h = document.getElementById("arrayInput2").value;
 
-    if (ff.trim() === "") {
+    if (h.trim() === "") {
         document.getElementById("result2").innerText = "Введите числа.";
         return;
     }
 
-    let gg = [];
-    let hh = 0;
-    for (let i = 0; i < ff.length; i++) {
-        if (ff[i] === ',') {
-            let ii = ff.substring(hh, i);
-            gg.push(parseFloat(ii));
-            hh = i + 1;
+    let i = [];
+    let j = 0;
+    for (let k = 0; k < h.length; k++) {
+        if (h[k] === ',') {
+            let l = h.substring(j, k);
+            i.push(parseFloat(l));
+            j = k + 1;
         }
     }
-    let jj = ff.substring(hh);
-    gg.push(parseFloat(jj));
+    let m = h.substring(j);
+    i.push(parseFloat(m));
 
-    let kk = [];
-    for (let i = 0; i < gg.length; i++) {
-        let ll = gg[i] * 1.1;
-        kk.push(ll.toFixed(2));
+    let n = [];
+    for (let o = 0; o < i.length; o++) {
+        let p = i[o] * 1.1;
+        n.push(p.toFixed(2));
     }
 
-    let mm = "Результат: ";
-    for (let i = 0; i < kk.length; i++) {
-        mm += kk[i];
-        if (i < kk.length - 1) {
-            mm += ", ";
+    let q = "Результат: ";
+    for (let r = 0; r < n.length; r++) {
+        q += n[r];
+        if (r < n.length - 1) {
+            q += ", ";
         }
     }
-    document.getElementById("result2").innerText = mm;
+    document.getElementById("result2").innerText = q;
 }
+
